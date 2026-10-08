@@ -1,0 +1,17 @@
+pastillas_yaris:
+  part: pastillas_yaris
+  vehicle_model: yaris
+  year_from: 2014
+  year_to: 2022
+
+pastillas_gol:
+  part: pastillas_gol
+  vehicle_model: gol
+  year_from: 2009
+  year_to: 2023
+
+bateria_gol:
+  part: bateria_gol
+  vehicle_model: gol
+  year_from: 2009
+  year_to: 2023

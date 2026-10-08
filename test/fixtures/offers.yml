@@ -1,0 +1,31 @@
+pastillas_yaris_a:
+  part: pastillas_yaris
+  store: demo_a
+  price: 30000
+  url: https://example.com/tienda-a/buscar?q=0986BB0612
+  in_stock: true
+  checked_at: <%= 1.day.ago.to_fs(:db) %>
+
+pastillas_yaris_b:
+  part: pastillas_yaris
+  store: demo_b
+  price: 25000
+  url: https://example.com/tienda-b/buscar?q=0986BB0612
+  in_stock: true
+  checked_at: <%= 1.day.ago.to_fs(:db) %>
+
+pastillas_gol_a:
+  part: pastillas_gol
+  store: demo_a
+  price: 20000
+  url: https://example.com/tienda-a/buscar?q=0986BB0789
+  in_stock: true
+  checked_at: <%= 1.day.ago.to_fs(:db) %>
+
+pastillas_gol_b:
+  part: pastillas_gol
+  store: demo_b
+  price: 15000
+  url: https://example.com/tienda-b/buscar?q=0986BB0789
+  in_stock: false
+  checked_at: <%= 1.day.ago.to_fs(:db) %>

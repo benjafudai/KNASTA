@@ -1,0 +1,20 @@
+pastillas_yaris:
+  name: Pastillas de freno delanteras
+  slug: pastillas-freno-yaris
+  category: frenos
+  manufacturer: Bosch
+  code: 0986BB0612
+
+pastillas_gol:
+  name: Pastillas de freno delanteras
+  slug: pastillas-gol
+  category: frenos
+  manufacturer: Bosch
+  code: 0986BB0789
+
+bateria_gol:
+  name: Batería 45Ah
+  slug: bateria-gol
+  category: electrico
+  manufacturer: Bosch
+  code: S4-45D

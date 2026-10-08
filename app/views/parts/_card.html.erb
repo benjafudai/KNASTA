@@ -1,0 +1,13 @@
+<%= link_to part_path(part), class: "card part-card" do %>
+  <div class="part-name"><%= part.name %></div>
+  <div class="muted small"><%= part.manufacturer %> · <%= part.code %></div>
+  <div class="small fits"><%= fits_summary(part) %></div>
+  <div class="part-price">
+    <% if (best = part.best_offer) %>
+      <%= clp(best.price) %>
+      <span class="muted small">en <%= pluralize(part.stores_in_stock, "tienda") %></span>
+    <% else %>
+      Sin stock
+    <% end %>
+  </div>
+<% end %>

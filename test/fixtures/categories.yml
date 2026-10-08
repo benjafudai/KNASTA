@@ -1,0 +1,9 @@
+frenos:
+  name: Frenos
+  slug: frenos
+  position: 0
+
+electrico:
+  name: Eléctrico y baterías
+  slug: electrico
+  position: 1

@@ -1,0 +1,8 @@
+<% content_for :title, "Marcas #{@nationality.name.downcase}" %>
+
+<nav class="crumbs"><%= link_to "Inicio", root_path %> / <%= @nationality.name %></nav>
+<h1><%= @nationality.flag %> Marcas <%= @nationality.name.downcase %></h1>
+<%= render "brands/chips", brands: @brands %>
+
+<h2>Repuestos destacados</h2>
+<%= render "parts/grid", parts: @parts, empty_message: "Aún no hay repuestos cargados para estas marcas." %>

@@ -1,0 +1,11 @@
+demo_a:
+  name: Tienda Demo A
+  slug: demo-a
+  url: https://example.com/tienda-a
+  source: demo
+
+demo_b:
+  name: Tienda Demo B
+  slug: demo-b
+  url: https://example.com/tienda-b
+  source: demo

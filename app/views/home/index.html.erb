@@ -1,0 +1,28 @@
+<section class="hero">
+  <h1>Compara precios de repuestos para tu auto</h1>
+  <p class="muted"><%= @brand_count %> marcas ordenadas por nacionalidad. Elige la tuya y encuentra el mejor precio entre tiendas.</p>
+</section>
+
+<section>
+  <h2>Categorías</h2>
+  <div class="chips">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, search_path(categoria: category.slug), class: "chip" %>
+    <% end %>
+  </div>
+</section>
+
+<section>
+  <h2>Marcas por nacionalidad</h2>
+  <div class="nationality-list">
+    <% @nationalities.each do |nationality| %>
+      <div class="card nationality">
+        <%= link_to nationality_path(nationality), class: "nationality-title" do %>
+          <span class="flag"><%= nationality.flag %></span> <%= nationality.name %>
+          <span class="muted small">(<%= nationality.brands.size %>)</span>
+        <% end %>
+        <%= render "brands/chips", brands: nationality.brands %>
+      </div>
+    <% end %>
+  </div>
+</section>

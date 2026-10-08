@@ -1,0 +1,27 @@
+# See https://help.github.com/articles/ignoring-files for more about ignoring files.
+
+/.bundle
+/.env*
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+/public/assets
+
+# Secrets: each environment creates its own (bin/rails credentials:edit) or uses SECRET_KEY_BASE.
+/config/*.key
+/config/credentials.yml.enc
+
+/node_modules
+.DS_Store
