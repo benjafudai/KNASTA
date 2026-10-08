@@ -1,0 +1,578 @@
+[
+  {
+    "partId": "filtro-aceite-toyota-90915",
+    "storeId": "demo-a",
+    "price": 7620,
+    "url": "https://example.com/tienda-a/buscar?q=90915-YZZE1",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-toyota-90915",
+    "storeId": "demo-b",
+    "price": 7410,
+    "url": "https://example.com/tienda-b/buscar?q=90915-YZZE1",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-toyota-90915",
+    "storeId": "demo-c",
+    "price": 7730,
+    "url": "https://example.com/tienda-c/buscar?q=90915-YZZE1",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-freno-yaris",
+    "storeId": "demo-a",
+    "price": 23420,
+    "url": "https://example.com/tienda-a/buscar?q=0986BB0612",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-freno-yaris",
+    "storeId": "demo-b",
+    "price": 22780,
+    "url": "https://example.com/tienda-b/buscar?q=0986BB0612",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-freno-yaris",
+    "storeId": "demo-c",
+    "price": 23760,
+    "url": "https://example.com/tienda-c/buscar?q=0986BB0612",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-hilux",
+    "storeId": "demo-a",
+    "price": 53350,
+    "url": "https://example.com/tienda-a/buscar?q=G16486",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-hilux",
+    "storeId": "demo-b",
+    "price": 55550,
+    "url": "https://example.com/tienda-b/buscar?q=G16486",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-hilux",
+    "storeId": "demo-c",
+    "price": 57780,
+    "url": "https://example.com/tienda-c/buscar?q=G16486",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-versa",
+    "storeId": "demo-a",
+    "price": 9170,
+    "url": "https://example.com/tienda-a/buscar?q=C2433",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-versa",
+    "storeId": "demo-b",
+    "price": 9540,
+    "url": "https://example.com/tienda-b/buscar?q=C2433",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-versa",
+    "storeId": "demo-c",
+    "price": 9920,
+    "url": "https://example.com/tienda-c/buscar?q=C2433",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-ngk-civic",
+    "storeId": "demo-a",
+    "price": 14020,
+    "url": "https://example.com/tienda-a/buscar?q=ILZKR7B11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-ngk-civic",
+    "storeId": "demo-b",
+    "price": 14570,
+    "url": "https://example.com/tienda-b/buscar?q=ILZKR7B11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-ngk-civic",
+    "storeId": "demo-c",
+    "price": 14110,
+    "url": "https://example.com/tienda-c/buscar?q=ILZKR7B11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "disco-freno-mazda3",
+    "storeId": "demo-a",
+    "price": 30150,
+    "url": "https://example.com/tienda-a/buscar?q=09.A905.11",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "disco-freno-mazda3",
+    "storeId": "demo-b",
+    "price": 31360,
+    "url": "https://example.com/tienda-b/buscar?q=09.A905.11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "disco-freno-mazda3",
+    "storeId": "demo-c",
+    "price": 32590,
+    "url": "https://example.com/tienda-c/buscar?q=09.A905.11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "kit-embrague-l200",
+    "storeId": "demo-a",
+    "price": 179980,
+    "url": "https://example.com/tienda-a/buscar?q=624319400",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "kit-embrague-l200",
+    "storeId": "demo-b",
+    "price": 174600,
+    "url": "https://example.com/tienda-b/buscar?q=624319400",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "kit-embrague-l200",
+    "storeId": "demo-c",
+    "price": 181800,
+    "url": "https://example.com/tienda-c/buscar?q=624319400",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bomba-agua-swift",
+    "storeId": "demo-a",
+    "price": 99620,
+    "url": "https://example.com/tienda-a/buscar?q=WPS-040",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bomba-agua-swift",
+    "storeId": "demo-b",
+    "price": 103630,
+    "url": "https://example.com/tienda-b/buscar?q=WPS-040",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bomba-agua-swift",
+    "storeId": "demo-c",
+    "price": 100440,
+    "url": "https://example.com/tienda-c/buscar?q=WPS-040",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-accent",
+    "storeId": "demo-a",
+    "price": 31960,
+    "url": "https://example.com/tienda-a/buscar?q=58101-1RA00",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-accent",
+    "storeId": "demo-b",
+    "price": 30960,
+    "url": "https://example.com/tienda-b/buscar?q=58101-1RA00",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-accent",
+    "storeId": "demo-c",
+    "price": 32200,
+    "url": "https://example.com/tienda-c/buscar?q=58101-1RA00",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-hyundai",
+    "storeId": "demo-a",
+    "price": 9080,
+    "url": "https://example.com/tienda-a/buscar?q=26300-35505",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-hyundai",
+    "storeId": "demo-b",
+    "price": 9730,
+    "url": "https://example.com/tienda-b/buscar?q=26300-35505",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-hyundai",
+    "storeId": "demo-c",
+    "price": 9440,
+    "url": "https://example.com/tienda-c/buscar?q=26300-35505",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "optico-tiggo2",
+    "storeId": "demo-a",
+    "price": 131020,
+    "url": "https://example.com/tienda-a/buscar?q=J69-4421010",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "optico-tiggo2",
+    "storeId": "demo-b",
+    "price": 127120,
+    "url": "https://example.com/tienda-b/buscar?q=J69-4421010",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "optico-tiggo2",
+    "storeId": "demo-c",
+    "price": 132190,
+    "url": "https://example.com/tienda-c/buscar?q=J69-4421010",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-cs35",
+    "storeId": "demo-a",
+    "price": 7680,
+    "url": "https://example.com/tienda-a/buscar?q=S101025-0100",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-cs35",
+    "storeId": "demo-b",
+    "price": 8010,
+    "url": "https://example.com/tienda-b/buscar?q=S101025-0100",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-cs35",
+    "storeId": "demo-c",
+    "price": 8340,
+    "url": "https://example.com/tienda-c/buscar?q=S101025-0100",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-wingle",
+    "storeId": "demo-a",
+    "price": 33200,
+    "url": "https://example.com/tienda-a/buscar?q=3501340-P00",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-wingle",
+    "storeId": "demo-b",
+    "price": 34500,
+    "url": "https://example.com/tienda-b/buscar?q=3501340-P00",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-wingle",
+    "storeId": "demo-c",
+    "price": 33410,
+    "url": "https://example.com/tienda-c/buscar?q=3501340-P00",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bateria-mg3",
+    "storeId": "demo-a",
+    "price": 76410,
+    "url": "https://example.com/tienda-a/buscar?q=S4-45D",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bateria-mg3",
+    "storeId": "demo-b",
+    "price": 74210,
+    "url": "https://example.com/tienda-b/buscar?q=S4-45D",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bateria-mg3",
+    "storeId": "demo-c",
+    "price": 77350,
+    "url": "https://example.com/tienda-c/buscar?q=S4-45D",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-sail",
+    "storeId": "demo-a",
+    "price": 69850,
+    "url": "https://example.com/tienda-a/buscar?q=G8131",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-sail",
+    "storeId": "demo-b",
+    "price": 72510,
+    "url": "https://example.com/tienda-b/buscar?q=G8131",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "amortiguador-sail",
+    "storeId": "demo-c",
+    "price": 70240,
+    "url": "https://example.com/tienda-c/buscar?q=G8131",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-spark",
+    "storeId": "demo-a",
+    "price": 14400,
+    "url": "https://example.com/tienda-a/buscar?q=BKR5E-11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-spark",
+    "storeId": "demo-b",
+    "price": 14960,
+    "url": "https://example.com/tienda-b/buscar?q=BKR5E-11",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bujia-spark",
+    "storeId": "demo-c",
+    "price": 14490,
+    "url": "https://example.com/tienda-c/buscar?q=BKR5E-11",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-ranger",
+    "storeId": "demo-a",
+    "price": 7500,
+    "url": "https://example.com/tienda-a/buscar?q=FL-2051",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-ranger",
+    "storeId": "demo-b",
+    "price": 7820,
+    "url": "https://example.com/tienda-b/buscar?q=FL-2051",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aceite-ranger",
+    "storeId": "demo-c",
+    "price": 7600,
+    "url": "https://example.com/tienda-c/buscar?q=FL-2051",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "aceite-5w30",
+    "storeId": "demo-a",
+    "price": 34610,
+    "url": "https://example.com/tienda-a/buscar?q=M1-5W30-4L",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "aceite-5w30",
+    "storeId": "demo-b",
+    "price": 36050,
+    "url": "https://example.com/tienda-b/buscar?q=M1-5W30-4L",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "aceite-5w30",
+    "storeId": "demo-c",
+    "price": 35010,
+    "url": "https://example.com/tienda-c/buscar?q=M1-5W30-4L",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-gol",
+    "storeId": "demo-a",
+    "price": 32010,
+    "url": "https://example.com/tienda-a/buscar?q=0986BB0789",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-gol",
+    "storeId": "demo-b",
+    "price": 31050,
+    "url": "https://example.com/tienda-b/buscar?q=0986BB0789",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "pastillas-gol",
+    "storeId": "demo-c",
+    "price": 31010,
+    "url": "https://example.com/tienda-c/buscar?q=0986BB0789",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-clase-c",
+    "storeId": "demo-a",
+    "price": 10480,
+    "url": "https://example.com/tienda-a/buscar?q=C27009",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-clase-c",
+    "storeId": "demo-b",
+    "price": 10890,
+    "url": "https://example.com/tienda-b/buscar?q=C27009",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "filtro-aire-clase-c",
+    "storeId": "demo-c",
+    "price": 11310,
+    "url": "https://example.com/tienda-c/buscar?q=C27009",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bobina-208",
+    "storeId": "demo-a",
+    "price": 14320,
+    "url": "https://example.com/tienda-a/buscar?q=0221504470",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bobina-208",
+    "storeId": "demo-b",
+    "price": 13880,
+    "url": "https://example.com/tienda-b/buscar?q=0221504470",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "bobina-208",
+    "storeId": "demo-c",
+    "price": 13850,
+    "url": "https://example.com/tienda-c/buscar?q=0221504470",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "parachoque-duster",
+    "storeId": "demo-a",
+    "price": 170130,
+    "url": "https://example.com/tienda-a/buscar?q=620223218R",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "parachoque-duster",
+    "storeId": "demo-b",
+    "price": 176750,
+    "url": "https://example.com/tienda-b/buscar?q=620223218R",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "parachoque-duster",
+    "storeId": "demo-c",
+    "price": 171110,
+    "url": "https://example.com/tienda-c/buscar?q=620223218R",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "radiador-tracker",
+    "storeId": "demo-a",
+    "price": 115900,
+    "url": "https://example.com/tienda-a/buscar?q=RAD-TRK-15",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "radiador-tracker",
+    "storeId": "demo-b",
+    "price": 120360,
+    "url": "https://example.com/tienda-b/buscar?q=RAD-TRK-15",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "radiador-tracker",
+    "storeId": "demo-c",
+    "price": 116620,
+    "url": "https://example.com/tienda-c/buscar?q=RAD-TRK-15",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "correa-distribucion-fiat",
+    "storeId": "demo-a",
+    "price": 82620,
+    "url": "https://example.com/tienda-a/buscar?q=K015607XS",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "correa-distribucion-fiat",
+    "storeId": "demo-b",
+    "price": 80260,
+    "url": "https://example.com/tienda-b/buscar?q=K015607XS",
+    "inStock": true,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  },
+  {
+    "partId": "correa-distribucion-fiat",
+    "storeId": "demo-c",
+    "price": 83630,
+    "url": "https://example.com/tienda-c/buscar?q=K015607XS",
+    "inStock": false,
+    "updatedAt": "2026-10-08T18:54:50.520Z"
+  }
+]

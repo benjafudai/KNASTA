@@ -1,0 +1,5 @@
+[
+  { "id": "demo-a", "name": "Tienda Demo A", "url": "https://example.com/tienda-a" },
+  { "id": "demo-b", "name": "Tienda Demo B", "url": "https://example.com/tienda-b" },
+  { "id": "demo-c", "name": "Tienda Demo C", "url": "https://example.com/tienda-c" }
+]
