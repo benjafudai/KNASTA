@@ -1,0 +1,16 @@
+{
+  "name": "KNASTA de Repuestos",
+  "short_name": "KNASTA",
+  "description": "Compara precios de repuestos de vehículos entre tiendas.",
+  "lang": "es-CL",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f6f8",
+  "theme_color": "#1c2230",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -23,7 +23,7 @@ h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; }
 .small { font-size: 0.85rem; }
 .empty { color: var(--muted); padding: 2rem 0; }
 
-.topbar { background: var(--text); color: #fff; padding: 12px 0; position: sticky; top: 0; z-index: 10; }
+.topbar { background: var(--text); color: #fff; padding: 12px 0; padding-top: calc(12px + env(safe-area-inset-top)); position: sticky; top: 0; z-index: 10; }
 .topbar-inner { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: #fff; white-space: nowrap; }
 .logo span { color: var(--accent); font-weight: 600; }
@@ -62,9 +62,15 @@ h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; }
 .crumbs a { color: var(--muted); }
 
 .search-layout { display: grid; grid-template-columns: 240px 1fr; gap: 16px; margin-top: 1rem; align-items: start; }
-.filters { display: flex; flex-direction: column; gap: 12px; }
+.filters summary { font-weight: 700; cursor: pointer; }
+.filters[open] summary { margin-bottom: 12px; }
+.filters-body { display: flex; flex-direction: column; gap: 12px; }
 .filters label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; font-weight: 600; }
-.filters select, .filters input { padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; }
+.filters select, .filters input { padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; background: var(--surface); }
+.badge {
+  background: var(--accent); color: var(--accent-ink); border-radius: 999px;
+  font-size: 0.75rem; padding: 1px 7px; margin-left: 6px; vertical-align: middle;
+}
 
 .fits-list { margin: 0; padding-left: 1.2rem; line-height: 1.7; }
 
@@ -74,9 +80,28 @@ h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; }
 .offers .price { font-weight: 800; }
 .offers tr.best { background: var(--best); }
 
-.footer { color: var(--muted); font-size: 0.85rem; padding: 2rem 16px; }
+.footer { color: var(--muted); font-size: 0.85rem; padding: 2rem 16px calc(2rem + env(safe-area-inset-bottom)); }
 
 @media (max-width: 720px) {
-  .search-layout { grid-template-columns: 1fr; }
-  .offers th:nth-child(4), .offers td:nth-child(4) { display: none; }
+  h1 { font-size: 1.35rem; }
+  .topbar { position: static; padding: 10px 0; padding-top: calc(10px + env(safe-area-inset-top)); }
+  .topbar-inner { gap: 10px; }
+  .searchbar { min-width: 100%; }
+  .chip { padding: 8px 14px; }
+
+  .search-layout { grid-template-columns: 1fr; margin-top: 0.75rem; }
+  .filters select, .filters input { padding: 10px; }
+
+  /* Price table becomes one card per store. */
+  .offers thead { display: none; }
+  .offers, .offers tbody { display: block; }
+  .offers tr {
+    display: grid; grid-template-columns: 1fr auto; gap: 4px 12px;
+    padding: 12px; border-bottom: 1px solid var(--border);
+  }
+  .offers td { padding: 0; border: 0; }
+  .offers td:nth-child(1) { font-weight: 600; }
+  .offers td:nth-child(2), .offers td:nth-child(4) { text-align: right; }
+  .offers td:nth-child(5) { grid-column: 1 / -1; margin-top: 6px; }
+  .offers td:nth-child(5) .button { display: block; text-align: center; padding: 11px; }
 }

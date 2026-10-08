@@ -19,7 +19,7 @@ export default function SearchBar() {
       <input
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Busca por repuesto, código, marca o modelo (ej: pastillas yaris)"
+        placeholder="Repuesto, código, marca o modelo"
         aria-label="Buscar repuestos"
       />
       <button type="submit">Buscar</button>
