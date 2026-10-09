@@ -1,5 +1,6 @@
 class Store < ApplicationRecord
   has_many :offers, dependent: :destroy
+  has_many :store_listings, dependent: :delete_all
 
   validates :name, :slug, :url, presence: true
   validates :slug, uniqueness: true

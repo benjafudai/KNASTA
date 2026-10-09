@@ -27,12 +27,23 @@ end
   Category.find_or_initialize_by(slug: slug).update!(name: name, position: index)
 end
 
+# Real stores. Their catalogs are public Shopify catalogs (see PriceSources::Shopify).
 [
-  [ "demo-a", "Tienda Demo A", "https://example.com/tienda-a" ],
-  [ "demo-b", "Tienda Demo B", "https://example.com/tienda-b" ],
-  [ "demo-c", "Tienda Demo C", "https://example.com/tienda-c" ]
+  [ "msrepuestos", "MS Repuestos", "https://www.msrepuestos.cl" ],      # Hyundai, Kia, SsangYong, Maxus, MG
+  [ "repuestos-europa", "Repuestos Europa", "https://www.repuestoseuropa.cl" ] # BMW, Mercedes, VW, Audi, Volvo...
 ].each do |slug, name, url|
-  Store.find_or_initialize_by(slug: slug).update!(name: name, url: url, source: "demo")
+  Store.find_or_initialize_by(slug: slug).update!(name: name, url: url, source: "shopify")
+end
+
+# Stores with generated prices, so the app has data to show while developing.
+unless Rails.env.production?
+  [
+    [ "demo-a", "Tienda Demo A", "https://example.com/tienda-a" ],
+    [ "demo-b", "Tienda Demo B", "https://example.com/tienda-b" ],
+    [ "demo-c", "Tienda Demo C", "https://example.com/tienda-c" ]
+  ].each do |slug, name, url|
+    Store.find_or_initialize_by(slug: slug).update!(name: name, url: url, source: "demo")
+  end
 end
 
 JSON.parse(File.read(Rails.root.join("db/seeds/parts.json"))).each do |data|

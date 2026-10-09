@@ -9,3 +9,9 @@ demo_b:
   slug: demo-b
   url: https://example.com/tienda-b
   source: demo
+
+msrepuestos:
+  name: MS Repuestos
+  slug: msrepuestos
+  url: https://www.msrepuestos.cl
+  source: shopify

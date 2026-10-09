@@ -18,3 +18,10 @@ bateria_gol:
   category: electrico
   manufacturer: Bosch
   code: S4-45D
+
+filtro_hyundai:
+  name: Filtro de aceite
+  slug: filtro-aceite-hyundai
+  category: frenos
+  manufacturer: Hyundai Mobis
+  code: 26300-35505
