@@ -1,11 +1,21 @@
 require "test_helper"
 
 class UpdatePricesJobTest < ActiveJob::TestCase
-  test "saves an offer for every part at every store" do
+  test "saves an offer for every part at every demo store" do
     UpdatePricesJob.perform_now
 
-    assert_equal Part.count * Store.count, Offer.count
-    assert Offer.where(part: parts(:bateria_gol)).all?(&:persisted?)
+    demo_stores = Store.where(source: "demo")
+    assert_equal Part.count * demo_stores.count, Offer.where(store: demo_stores).count
+  end
+
+  test "marks the offer unavailable when the store stops selling the part" do
+    offer = Offer.create!(part: parts(:pastillas_yaris), store: stores(:msrepuestos), price: 40_000,
+                          url: "https://www.msrepuestos.cl/products/x", in_stock: true, checked_at: 1.day.ago)
+
+    UpdatePricesJob.perform_now
+
+    assert_not offer.reload.in_stock?
+    assert_equal 40_000, offer.price
   end
 
   test "records price history only when the price changes" do

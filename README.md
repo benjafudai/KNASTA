@@ -9,7 +9,7 @@ Hecho con Ruby on Rails 8 y PostgreSQL, igual que GestFleet.
 - **Marcas por nacionalidad**: 63 marcas agrupadas en 12 nacionalidades (japonesas, coreanas, chinas, americanas, alemanas, etc.). La nacionalidad es el país de origen de la marca. La lista está en `db/seeds/brands.rb`.
 - **Búsqueda**: por texto (sin importar tildes) y con filtros por marca, modelo, año y categoría, ordenando por el menor precio con stock (`app/models/part_search.rb`).
 - **Ficha de repuesto**: precio en cada tienda, stock, fecha de actualización y botón para ir a la tienda.
-- **Precios**: `UpdatePricesJob` consulta la fuente de precios de cada tienda y guarda el precio. Cada cambio de precio queda en el historial (`PricePoint`). En producción corre todos los días a las 6:00 (`config/recurring.yml`).
+- **Precios**: `UpdatePricesJob` descarga el catálogo de cada tienda, busca cada repuesto por su código y guarda el precio. Cada cambio de precio queda en el historial (`PricePoint`). En producción corre todos los días a las 6:00 (`config/recurring.yml`).
 - **Celulares**: diseño adaptado a pantallas chicas y app instalable (PWA) con páginas visitadas disponibles sin conexión (`app/views/pwa/`).
 
 ## Modelo de datos
@@ -18,18 +18,27 @@ Hecho con Ruby on Rails 8 y PostgreSQL, igual que GestFleet.
 Nationality ─< Brand ─< VehicleModel ─< Fitment >─ Part >─ Category
                                                     │
 Store ─< Offer >────────────────────────────────────┘
-         └─< PricePoint (historial de precios)
+  │      └─< PricePoint (historial de precios)
+  └─< StoreListing (catálogo descargado de la tienda)
 ```
 
-## Conectar una tienda real
+## Tiendas conectadas
 
-Hoy solo existen tres tiendas de demostración con precios generados (`PriceSources::Demo`). Para agregar una tienda real:
+| Tienda | Marcas que cubre | Cómo se leen los precios |
+|---|---|---|
+| [MS Repuestos](https://www.msrepuestos.cl) | Hyundai, Kia, SsangYong, Maxus, MG | Catálogo público de Shopify |
+| [Repuestos Europa](https://www.repuestoseuropa.cl) | BMW, Mercedes-Benz, VW, Audi, Volvo, MINI, Porsche, Land Rover... | Catálogo público de Shopify |
 
-1. Crea `app/models/price_sources/<tienda>.rb` con un método `self.fetch(part, store)` que devuelva `{ price:, url:, in_stock: }` o `nil` si la tienda no vende ese repuesto. Usa `PriceSources::Demo` como ejemplo.
-2. Crea la tienda con `source: "<tienda>"`.
-3. Ejecuta `bin/rails prices:update` para probarla.
+Cada actualización descarga el catálogo completo de la tienda desde `/products.json` (permitido por su `robots.txt`, con una pausa entre páginas) y lo guarda en `StoreListing`. Después cada repuesto se busca por su código: el SKU del producto o un número de parte en el título (por ejemplo, el repuesto con código `26300-35505` calza con "Filtro Aceite ... Original 2630035505"). Si no hay coincidencia exacta de código, la tienda no muestra precio para ese repuesto, para no mezclar productos distintos.
 
-Revisa los términos de uso de cada sitio antes de leer sus precios. Si la tienda ofrece una API o un feed de productos, úsalo en vez de leer el HTML.
+En desarrollo también existen tres «Tienda Demo» con precios generados.
+
+### Agregar otra tienda
+
+- **Si usa Shopify** (se reconoce por rutas `/products/...` y `/collections/...`): basta con crear la tienda con `source: "shopify"` y la URL de su página principal.
+- **Si usa otra plataforma**: crea `app/models/price_sources/<plataforma>.rb` con `self.fetch(part, store)` (y opcionalmente `self.sync(store)` para descargar el catálogo), siguiendo `PriceSources::Shopify` como ejemplo.
+
+Revisa el `robots.txt` y los términos de cada sitio antes de conectarlo.
 
 ## Desarrollo
 

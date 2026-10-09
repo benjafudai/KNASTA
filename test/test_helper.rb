@@ -10,6 +10,7 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
-    # Add more helper methods to be used by all tests here...
+    # Tests never reach real stores; tests that need a catalog pass their own http.
+    PriceSources::Shopify.http = ->(uri) { raise "Sin red en los tests: #{uri}" }
   end
 end

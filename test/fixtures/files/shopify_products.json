@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 7000000000001,
+      "title": "Filtro Aceite Bencina Hyundai Accent Elantra Rio Original 2630035505",
+      "handle": "filtro-aceite-bencina-hyundai-accent-elantra-rio-original-2630035505",
+      "vendor": "MSREPUESTOS",
+      "product_type": "FILTROS",
+      "variants": [
+        { "id": 1, "sku": "", "available": true, "price": "5300", "compare_at_price": null }
+      ]
+    },
+    {
+      "id": 7000000000002,
+      "title": "Optico Derecho Hyundai Staria 2020 a 2025 Alternativo 92102CG000",
+      "handle": "optico-derecho-hyundai-staria-2020-25-alternativo-92102cg000",
+      "vendor": "CHINA",
+      "product_type": "FAROLES",
+      "variants": [
+        { "id": 2, "sku": "92102CG000A", "available": false, "price": "136740.00", "compare_at_price": null }
+      ]
+    },
+    {
+      "id": 7000000000003,
+      "title": "Juego Pastilla Freno Delantero Hyundai Accent 2012-23 Original 58101H6A15",
+      "handle": "juego-pastilla-freno-delantero-hyundai-accent-2012-23-original-58101h6a15",
+      "vendor": "MSREPUESTOS",
+      "product_type": "FRENOS",
+      "variants": [
+        { "id": 3, "sku": "58101H6A15", "available": true, "price": "42294", "compare_at_price": null }
+      ]
+    },
+    {
+      "id": 7000000000004,
+      "title": "Producto sin precio",
+      "handle": "producto-sin-precio",
+      "vendor": "MSREPUESTOS",
+      "product_type": "OTROS",
+      "variants": [
+        { "id": 4, "sku": "X1", "available": true, "price": "0.00", "compare_at_price": null }
+      ]
+    }
+  ]
+}

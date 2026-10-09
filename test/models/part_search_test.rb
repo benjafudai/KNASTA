@@ -21,8 +21,8 @@ class PartSearchTest < ActiveSupport::TestCase
   end
 
   test "sorts by lowest in-stock price, parts without stock last" do
-    assert_equal %w[pastillas-gol pastillas-freno-yaris bateria-gol], slugs(orden: "precio-asc")
-    assert_equal %w[pastillas-freno-yaris pastillas-gol bateria-gol], slugs(orden: "precio-desc")
+    assert_equal %w[pastillas-gol pastillas-freno-yaris bateria-gol filtro-aceite-hyundai], slugs(orden: "precio-asc")
+    assert_equal %w[pastillas-freno-yaris pastillas-gol bateria-gol filtro-aceite-hyundai], slugs(orden: "precio-desc")
   end
 
   test "ignores unknown filters and sort values" do

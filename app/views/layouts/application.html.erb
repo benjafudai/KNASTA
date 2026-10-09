@@ -40,7 +40,8 @@
     </main>
 
     <footer class="container footer">
-      Precios de demostración. Las tiendas reales se conectan en <code>app/models/price_sources</code>.
+      Precios actualizados todos los días desde cada tienda.
+      <% unless Rails.env.production? %>Las «Tienda Demo» tienen precios de prueba.<% end %>
     </footer>
   </body>
 </html>

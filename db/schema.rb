@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_08_191130) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_09_115454) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "unaccent"
@@ -93,6 +93,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_08_191130) do
     t.index ["offer_id"], name: "index_price_points_on_offer_id"
   end
 
+  create_table "store_listings", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "external_id", null: false
+    t.string "title", null: false
+    t.string "sku"
+    t.string "codes", default: [], null: false, array: true
+    t.integer "price", null: false
+    t.boolean "available", default: true, null: false
+    t.string "url", null: false
+    t.string "vendor"
+    t.string "product_type"
+    t.datetime "synced_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["codes"], name: "index_store_listings_on_codes", using: :gin
+    t.index ["store_id", "external_id"], name: "index_store_listings_on_store_id_and_external_id", unique: true
+    t.index ["store_id"], name: "index_store_listings_on_store_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
@@ -119,5 +138,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_08_191130) do
   add_foreign_key "offers", "stores"
   add_foreign_key "parts", "categories"
   add_foreign_key "price_points", "offers"
+  add_foreign_key "store_listings", "stores"
   add_foreign_key "vehicle_models", "brands"
 end
