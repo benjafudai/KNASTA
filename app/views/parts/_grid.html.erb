@@ -1,0 +1,7 @@
+<% if parts.any? %>
+  <div class="part-grid">
+    <%= render partial: "parts/card", collection: parts, as: :part %>
+  </div>
+<% else %>
+  <p class="empty"><%= empty_message %></p>
+<% end %>

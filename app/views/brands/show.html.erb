@@ -1,0 +1,28 @@
+<% content_for :title, "Repuestos #{@brand.name}" %>
+
+<nav class="crumbs">
+  <%= link_to "Inicio", root_path %> /
+  <%= link_to @brand.nationality.name, nationality_path(@brand.nationality) %> /
+  <%= @brand.name %>
+</nav>
+<h1>Repuestos <%= @brand.name %> <span class="flag"><%= @brand.nationality.flag %></span></h1>
+<% if @brand.note.present? %><p class="muted"><%= @brand.note %></p><% end %>
+
+<% if @brand.vehicle_models.any? %>
+  <h2>Modelos</h2>
+  <div class="chips">
+    <% @brand.vehicle_models.each do |model| %>
+      <%= link_to model.name, search_path(marca: @brand.slug, modelo: model.name), class: "chip" %>
+    <% end %>
+  </div>
+<% end %>
+
+<h2>Categorías</h2>
+<div class="chips">
+  <% @categories.each do |category| %>
+    <%= link_to category.name, search_path(marca: @brand.slug, categoria: category.slug), class: "chip" %>
+  <% end %>
+</div>
+
+<h2>Repuestos</h2>
+<%= render "parts/grid", parts: @parts, empty_message: "Aún no hay repuestos cargados para #{@brand.name}." %>

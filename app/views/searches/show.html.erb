@@ -1,0 +1,47 @@
+<% content_for :title, @search.q.presence || "Buscar repuestos" %>
+
+<div class="search-layout">
+  <details class="filters card" data-controller="filters">
+    <summary>
+      Filtros y orden
+      <% if @search.active_filters.positive? %><span class="badge"><%= @search.active_filters %></span><% end %>
+    </summary>
+    <%= form_with url: search_path, method: :get, class: "filters-body", data: { turbo_action: "advance" } do |f| %>
+      <%= f.hidden_field :q, value: @search.q if @search.q.present? %>
+
+      <%= f.label :marca, "Marca" %>
+      <%= f.select :marca,
+            @nationalities.map { |n| [ "#{n.flag} #{n.name}", n.brands.map { |b| [ b.name, b.slug ] } ] },
+            { selected: @search.brand&.slug, include_blank: "Todas" },
+            { data: { action: "filters#submit" } } %>
+
+      <% if @search.brand %>
+        <%= f.label :modelo, "Modelo" %>
+        <%= f.select :modelo, @search.brand.vehicle_models.map(&:name),
+              { selected: @search.model&.name, include_blank: "Todos" },
+              { data: { filters_target: "model", action: "filters#submit" } } %>
+      <% end %>
+
+      <%= f.label :anio, "Año" %>
+      <%= f.number_field :anio, value: @search.year, min: 1980, max: 2030, placeholder: "Ej: 2018",
+            inputmode: "numeric", data: { action: "filters#submit" } %>
+
+      <%= f.label :categoria, "Categoría" %>
+      <%= f.select :categoria, @categories.map { |c| [ c.name, c.slug ] },
+            { selected: @search.category&.slug, include_blank: "Todas" },
+            { data: { action: "filters#submit" } } %>
+
+      <%= f.label :orden, "Ordenar por" %>
+      <%= f.select :orden, PartSearch::SORTS.invert, { selected: @search.sort }, { data: { action: "filters#submit" } } %>
+
+      <noscript><%= f.submit "Aplicar" %></noscript>
+    <% end %>
+  </details>
+
+  <section>
+    <p class="muted">
+      <%= pluralize(@parts.size, "resultado") %><% if @search.q.present? %> para “<%= @search.q %>”<% end %>
+    </p>
+    <%= render "parts/grid", parts: @parts, empty_message: "No encontramos repuestos con esos filtros." %>
+  </section>
+</div>

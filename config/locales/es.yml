@@ -1,0 +1,15 @@
+es:
+  number:
+    currency:
+      format:
+        unit: "$"
+        format: "%u%n"
+        delimiter: "."
+        separator: ","
+        precision: 0
+  time:
+    formats:
+      short: "%d-%m-%Y %H:%M"
+  date:
+    formats:
+      short: "%d-%m"

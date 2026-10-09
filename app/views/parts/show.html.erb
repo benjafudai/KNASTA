@@ -1,0 +1,42 @@
+<% content_for :title, "#{@part.name} #{@part.code}" %>
+<% best = @part.best_offer %>
+
+<nav class="crumbs">
+  <%= link_to "Inicio", root_path %> /
+  <%= link_to @part.category.name, search_path(categoria: @part.category.slug) %> /
+  <%= @part.name %>
+</nav>
+<h1><%= @part.name %></h1>
+<p class="muted"><%= @part.manufacturer %> · Código <%= @part.code %></p>
+
+<h2>Compatible con</h2>
+<ul class="fits-list">
+  <% @part.fitments.each do |fitment| %>
+    <li>
+      <%= link_to fitment.vehicle_model.brand.name, brand_path(fitment.vehicle_model.brand) %>
+      <%= fitment.vehicle_model.name %> (<%= fitment.years %>)
+    </li>
+  <% end %>
+</ul>
+
+<h2>Precios por tienda</h2>
+<% if @part.offers.any? %>
+  <table class="offers">
+    <thead>
+      <tr><th>Tienda</th><th>Precio</th><th>Stock</th><th>Actualizado</th><th></th></tr>
+    </thead>
+    <tbody>
+      <% @part.offers.each do |offer| %>
+        <tr class="<%= "best" if offer == best %>">
+          <td><%= offer.store.name %></td>
+          <td class="price"><%= clp(offer.price) %></td>
+          <td><%= offer.in_stock? ? "Disponible" : "Sin stock" %></td>
+          <td class="muted small"><%= l(offer.checked_at, format: :short) %></td>
+          <td><%= link_to "Ir a la tienda", offer.url, class: "button", target: "_blank", rel: "noopener noreferrer" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="empty">Todavía no hay precios para este repuesto.</p>
+<% end %>

@@ -1,0 +1,9 @@
+toyota:
+  name: Toyota
+  slug: toyota
+  nationality: japon
+
+volkswagen:
+  name: Volkswagen
+  slug: volkswagen
+  nationality: alemania

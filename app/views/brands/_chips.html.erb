@@ -1,0 +1,5 @@
+<div class="chips">
+  <% brands.each do |brand| %>
+    <%= link_to brand.name, brand_path(brand), class: "chip", title: brand.note %>
+  <% end %>
+</div>

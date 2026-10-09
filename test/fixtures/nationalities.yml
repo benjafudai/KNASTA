@@ -1,0 +1,11 @@
+japon:
+  name: Japonesas
+  slug: japon
+  flag: 🇯🇵
+  position: 0
+
+alemania:
+  name: Alemanas
+  slug: alemania
+  flag: 🇩🇪
+  position: 1
