@@ -69,6 +69,9 @@ USER 1000:1000
 COPY --chown=rails:rails --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
 COPY --chown=rails:rails --from=build /rails /rails
 
+# Links the image published on ghcr.io to this repository.
+LABEL org.opencontainers.image.source=https://github.com/benjafudai/KNASTA
+
 # Entrypoint prepares the database.
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
