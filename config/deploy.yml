@@ -1,5 +1,5 @@
 # Deploys Repuestómetro to the VPS with Kamal (https://kamal-deploy.org).
-# The server, user and domain come from environment variables so nothing private lives in
+# The server, user, domain and IP come from environment variables so nothing private lives in
 # the repository; GitHub Actions sets them from the repository variables. See docs/despliegue.md.
 <% domain = ENV["APP_DOMAIN"].presence %>
 
@@ -21,6 +21,13 @@ proxy:
   host: <%= domain %>
 <% else %>
   ssl: false
+<% end %>
+<% if (ip = ENV["APP_IP"].presence) %>
+  # Listen on 80/443 of this IP only, so another web server on the same VPS
+  # (GestFleet) keeps those ports on its own IP.
+  run:
+    bind_ips:
+      - <%= ip %>
 <% end %>
 
 registry:

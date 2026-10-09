@@ -27,6 +27,7 @@ jobs:
       VPS_HOST: ${{ vars.VPS_HOST }}
       VPS_USER: ${{ vars.VPS_USER }}
       APP_DOMAIN: ${{ vars.APP_DOMAIN }}
+      APP_IP: ${{ vars.APP_IP }}
       KAMAL_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       SECRET_KEY_BASE: ${{ secrets.SECRET_KEY_BASE }}
       REPUESTOMETRO_DATABASE_PASSWORD: ${{ secrets.REPUESTOMETRO_DATABASE_PASSWORD }}

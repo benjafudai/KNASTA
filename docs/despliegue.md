@@ -14,8 +14,8 @@ La configuración está en `config/deploy.yml` y `.github/workflows/deploy.yml`.
 
 ## Lo que necesitas
 
-- Un VPS con Ubuntu o Debian, con acceso SSH y los puertos 80 y 443 libres. Con 1 GB de RAM funciona; 2 GB es más cómodo.
-- Opcional: un dominio (por ejemplo `repuestometro.cl`). Sin dominio la app queda en `http://IP-DEL-VPS`, sin candado SSL.
+- Un VPS con Ubuntu o Debian, con acceso SSH y los puertos 80 y 443 libres, o una IP adicional si otra app ya los usa (ver [Si GestFleet está en el mismo VPS](#si-gestfleet-está-en-el-mismo-vps)). Repuestómetro necesita del orden de 1 GB de RAM libre para la app, sus tareas y PostgreSQL.
+- Opcional: un dominio o un subdominio de uno que ya tengas (por ejemplo `repuestometro.tudominio.cl`). Sin dominio la app queda en `http://IP-DEL-VPS`, sin candado SSL.
 
 ## 1. Preparar el VPS
 
@@ -52,9 +52,9 @@ type repuestometro_deploy.pub | ssh root@IP-DEL-VPS "mkdir -p ~/.ssh && cat >> ~
 ssh-copy-id -i repuestometro_deploy.pub root@IP-DEL-VPS
 ```
 
-## 3. Apuntar el dominio (si tienes uno)
+## 3. Apuntar el dominio o subdominio
 
-En el panel de tu dominio (NIC Chile, Cloudflare, etc.) crea un registro **A** con el nombre del dominio apuntando a la IP del VPS. Si usas Cloudflare, déjalo en «DNS only» (nube gris) para que el certificado SSL se pueda emitir.
+En el panel de tu dominio (NIC Chile, Cloudflare, etc.) crea un registro **A** apuntando a la IP que usará Repuestómetro. Para un subdominio del dominio de GestFleet, el nombre del registro es `repuestometro` y la dirección queda `repuestometro.tudominio.cl`; el sitio de GestFleet no cambia. Si usas Cloudflare, déjalo en «DNS only» (nube gris) para que el certificado SSL se pueda emitir.
 
 ## 4. Guardar los datos en GitHub
 
@@ -66,7 +66,8 @@ En la pestaña **Variables** crea:
 |---|---|
 | `VPS_HOST` | La IP del VPS, por ejemplo `203.0.113.10` |
 | `VPS_USER` | El usuario SSH. Si es `root` puedes omitirla. |
-| `APP_DOMAIN` | El dominio, por ejemplo `repuestometro.cl`. Omítela si no tienes dominio. |
+| `APP_DOMAIN` | El dominio o subdominio, por ejemplo `repuestometro.tudominio.cl`. Omítela si no tienes dominio. |
+| `APP_IP` | La IP que usará solo Repuestómetro, cuando el VPS tiene otra IP para GestFleet. Omítela si Repuestómetro es lo único que usa los puertos 80 y 443. |
 
 En la pestaña **Secrets** crea:
 
@@ -109,9 +110,24 @@ docker exec repuestometro-db pg_dump -U repuestometro repuestometro_production >
 
 ## Si GestFleet está en el mismo VPS
 
-- **Si GestFleet también se publica con Kamal**, las dos apps comparten el mismo `kamal-proxy`. Cada una necesita su propio dominio, así que define `APP_DOMAIN`.
-- **Si GestFleet usa Nginx, Apache u otro servidor en los puertos 80 y 443**, `kamal-proxy` no puede usar esos puertos y el despliegue falla con un error como `port is already allocated` o `address already in use`. Hay que hacer que uno de los dos le pase el tráfico al otro; la configuración depende de cómo está montado GestFleet.
-- Las bases de datos no chocan: la de Repuestómetro es un contenedor aparte y no usa el puerto 5432 del VPS.
+Las dos apps pueden vivir en el mismo VPS. Lo único que no se comparte son los puertos 80 y 443 de una misma IP, porque solo un programa puede escucharlos. Con dos IPs se reparte así:
+
+| | GestFleet | Repuestómetro |
+|---|---|---|
+| IP | IP 1 | IP 2 (`APP_IP`) |
+| Dirección | `tudominio.cl` | `repuestometro.tudominio.cl` (`APP_DOMAIN`) |
+| Base de datos | La suya | Contenedor `repuestometro-db`, sin puertos abiertos |
+
+1. Revisa que el VPS tenga las dos IPs activas: `ip -4 addr` debe mostrar ambas. Algunos proveedores entregan la IP adicional pero hay que agregarla a mano en la red del VPS; su ayuda lo explica como «IP adicional» o «additional IP».
+2. Revisa quién usa los puertos 80 y 443: `sudo ss -tlnp | grep -E ':(80|443) '`.
+   - Si aparece `0.0.0.0:80` o `*:80`, GestFleet (Nginx, Apache, etc.) escucha en todas las IPs y hay que dejarlo solo en la IP 1. En Nginx se cambia `listen 80;` por `listen IP-1:80;` y `listen 443 ssl;` por `listen IP-1:443 ssl;` en cada sitio, y se recarga con `sudo nginx -t && sudo systemctl reload nginx`.
+   - Si aparece `IP-1:80`, ya está listo.
+   - Si no aparece nada, los puertos están libres.
+3. Define `APP_IP` con la IP 2 y `APP_DOMAIN` con el subdominio (paso 4).
+
+Si algún día GestFleet también se publica con Kamal (está en su roadmap), las dos apps comparten el mismo `kamal-proxy`, que atiende a cada una por su dominio. En ese caso se quita `APP_IP`.
+
+Para separar Repuestómetro en otro servidor más adelante, basta con cambiar `VPS_HOST` y `APP_IP` y apuntar el subdominio a la nueva IP. La base de datos se lleva con el respaldo de arriba.
 
 ## Problemas comunes
 
@@ -119,6 +135,7 @@ docker exec repuestometro-db pg_dump -U repuestometro repuestometro_production >
 |---|---|
 | `Permission denied (publickey)` | La llave pública no está en `~/.ssh/authorized_keys` del usuario `VPS_USER`, o `VPS_SSH_KEY` no tiene la llave privada completa. |
 | `Docker is not installed … can't be automatically installed` | El usuario no es `root`. Instala Docker como en el paso 1. |
-| `port is already allocated` / `address already in use` | Otro programa usa el puerto 80 o 443. Ver la sección de GestFleet. |
+| `port is already allocated` / `address already in use` | Otro programa usa el puerto 80 o 443 en esa IP. Ver la sección de GestFleet. |
+| `cannot assign requested address` | La IP de `APP_IP` no está activa en el VPS. Ver el paso 1 de la sección de GestFleet. |
 | La página abre sin candado o el certificado falla | El dominio todavía no apunta a la IP del VPS, el puerto 80 está cerrado, o Cloudflare está en modo proxy (nube naranja). |
 | `target failed to become healthy` | La app no arrancó. Revisa los logs del contenedor `repuestometro-web-…` con `docker logs`. |
