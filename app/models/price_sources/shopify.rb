@@ -7,7 +7,7 @@ module PriceSources
   class Shopify
     PAGE_SIZE = 250
     MAX_PAGES = 200
-    USER_AGENT = "KNASTA/1.0 (+https://github.com/benjafudai/KNASTA)".freeze
+    USER_AGENT = "Repuestometro/1.0 (+https://github.com/benjafudai/KNASTA)".freeze
 
     # How catalog pages are downloaded; tests swap it for a fake.
     cattr_accessor :http, default: ->(uri) { get_json(uri) }
