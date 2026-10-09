@@ -44,6 +44,6 @@ class BrowsingTest < ActionDispatch::IntegrationTest
     get pwa_manifest_path(format: :json)
 
     assert_response :success
-    assert_equal "KNASTA", response.parsed_body["short_name"]
+    assert_equal "Repuestómetro", response.parsed_body["short_name"]
   end
 end

@@ -1,4 +1,4 @@
-# KNASTA de Repuestos
+# Repuestómetro
 
 Buscador de repuestos de vehículos al estilo SoloTodo. Reúne los precios de distintas tiendas, enlaza a cada una y mantiene los precios actualizados. Funciona en el teléfono y se puede instalar en la pantalla de inicio.
 
@@ -52,4 +52,4 @@ bin/rails prices:update   # actualiza los precios ahora
 bin/ci                    # lint, auditorías de seguridad y tests
 ```
 
-En producción define `SECRET_KEY_BASE` (o crea tus credenciales con `bin/rails credentials:edit`) y `KNASTA_DATABASE_PASSWORD`. Las tareas programadas corren con `bin/jobs`.
+En producción define `SECRET_KEY_BASE` (o crea tus credenciales con `bin/rails credentials:edit`) y `REPUESTOMETRO_DATABASE_PASSWORD`. Las tareas programadas corren con `bin/jobs`.
