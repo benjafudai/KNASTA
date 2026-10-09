@@ -1,0 +1,78 @@
+# Deploys Repuestómetro to the VPS with Kamal (https://kamal-deploy.org).
+# The server, user, domain and IP come from environment variables so nothing private lives in
+# the repository; GitHub Actions sets them from the repository variables. See docs/despliegue.md.
+<% domain = ENV["APP_DOMAIN"].presence %>
+
+service: repuestometro
+image: benjafudai/repuestometro
+
+servers:
+  web:
+    - <%= ENV.fetch("VPS_HOST") %>
+
+ssh:
+  user: <%= ENV["VPS_USER"].presence || "root" %>
+
+# kamal-proxy answers on ports 80/443. With a domain it gets a free Let's Encrypt
+# certificate; without one the app is served over plain HTTP on the server's IP.
+proxy:
+<% if domain %>
+  ssl: true
+  host: <%= domain %>
+<% else %>
+  ssl: false
+<% end %>
+<% if (ip = ENV["APP_IP"].presence) %>
+  # Listen on 80/443 of this IP only, so another web server on the same VPS
+  # (GestFleet) keeps those ports on its own IP.
+  run:
+    bind_ips:
+      - <%= ip %>
+<% end %>
+
+registry:
+  server: ghcr.io
+  username: benjafudai
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+env:
+  secret:
+    - SECRET_KEY_BASE
+    - REPUESTOMETRO_DATABASE_PASSWORD
+  clear:
+    DB_HOST: repuestometro-db
+    # Runs the job queue (and the daily price update) inside the web process.
+    SOLID_QUEUE_IN_PUMA: true
+    FORCE_SSL: <%= domain ? "true" : "false" %>
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole --include-password"
+  prices: app exec --reuse "bin/rails prices:update"
+
+volumes:
+  - "repuestometro_storage:/rails/storage"
+
+asset_path: /rails/public/assets
+
+# The first boot creates the databases before the app answers, so give it time.
+deploy_timeout: 90
+
+builder:
+  arch: amd64
+
+accessories:
+  db:
+    image: postgres:16
+    host: <%= ENV.fetch("VPS_HOST") %>
+    # No published port: only the app reaches it, through Kamal's private Docker network.
+    env:
+      clear:
+        POSTGRES_USER: repuestometro
+        POSTGRES_DB: repuestometro_production
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data

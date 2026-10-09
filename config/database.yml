@@ -90,6 +90,7 @@ production:
     database: repuestometro_production
     username: repuestometro
     password: <%= ENV["REPUESTOMETRO_DATABASE_PASSWORD"] %>
+    host: <%= ENV.fetch("DB_HOST", "localhost") %>
   cache:
     <<: *primary_production
     database: repuestometro_production_cache

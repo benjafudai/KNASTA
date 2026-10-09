@@ -62,4 +62,6 @@ JSON.parse(File.read(Rails.root.join("db/seeds/parts.json"))).each do |data|
   end
 end
 
-UpdatePricesJob.perform_now
+# In production the store catalogs take a while to download, so prices load in the
+# background instead of holding up the first boot.
+Rails.env.production? ? UpdatePricesJob.perform_later : UpdatePricesJob.perform_now

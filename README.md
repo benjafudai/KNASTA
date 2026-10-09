@@ -52,4 +52,6 @@ bin/rails prices:update   # actualiza los precios ahora
 bin/ci                    # lint, auditorías de seguridad y tests
 ```
 
-En producción define `SECRET_KEY_BASE` (o crea tus credenciales con `bin/rails credentials:edit`) y `REPUESTOMETRO_DATABASE_PASSWORD`. Las tareas programadas corren con `bin/jobs`.
+## Producción
+
+La app se publica en un VPS con Kamal: cada cambio en `main` que pasa los tests se despliega solo desde GitHub Actions. Los pasos para conectar tu VPS están en [docs/despliegue.md](docs/despliegue.md).
