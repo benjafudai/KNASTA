@@ -1,7 +1,7 @@
 // Offline support for the installed app. Pages are fetched from the network first so
 // prices are always current, and the last copy is kept for when there's no signal.
 // Fingerprinted assets (/assets/...) never change, so they're served from cache.
-const CACHE = "knasta-v1"
+const CACHE = "repuestometro-v1"
 
 self.addEventListener("install", () => self.skipWaiting())
 

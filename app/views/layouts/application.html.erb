@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title><%= [ content_for(:title), "KNASTA de Repuestos" ].compact.join(" · ") %></title>
+    <title><%= [ content_for(:title), "Repuestómetro" ].compact.join(" · ") %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="Compara precios de repuestos de vehículos entre tiendas.">
     <meta name="theme-color" content="#1c2230">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="KNASTA">
+    <meta name="apple-mobile-web-app-title" content="Repuestómetro">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="application-name" content="KNASTA">
+    <meta name="application-name" content="Repuestómetro">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -27,7 +27,7 @@
   <body>
     <header class="topbar">
       <div class="container topbar-inner">
-        <%= link_to root_path, class: "logo" do %>KNASTA <span>de Repuestos</span><% end %>
+        <%= link_to root_path, class: "logo" do %>Repuestó<span>metro</span><% end %>
         <%= form_with url: search_path, method: :get, class: "searchbar", role: "search" do |f| %>
           <%= f.search_field :q, value: params[:q], placeholder: "Repuesto, código, marca o modelo", "aria-label": "Buscar repuestos" %>
           <%= f.button "Buscar", name: nil %>
